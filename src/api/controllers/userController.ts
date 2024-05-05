@@ -4,7 +4,7 @@ import {User} from '../../types';
 
 function findUserIndexById(id: number | string) {
   for (let i = 0; i < users.length; i++) {
-    if (users[i].id === id) return i;
+    if (users[i].id == id) return i;
   }
   return -1;
 }
