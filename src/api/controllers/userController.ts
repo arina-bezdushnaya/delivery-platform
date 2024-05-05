@@ -10,7 +10,6 @@ function findUserIndexById(id: number | string) {
 }
 
 export function getUsers(req: Request, res: Response) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send(users);
 }
 
@@ -18,7 +17,6 @@ export function getUserById(req: Request, res: Response) {
   const id = req.params.id;
 
   const index = findUserIndexById(id);
-  res.setHeader('Access-Control-Allow-Origin', '*');
 
   if (index !== -1) {
     res.send(users[index]);
@@ -29,7 +27,6 @@ export function getUserById(req: Request, res: Response) {
 
 export function addUser(req: Request, res: Response) {
   const id: number = users[users.length - 1].id++;
-  res.setHeader('Access-Control-Allow-Origin', '*');
 
   if (!req.body) return res.sendStatus(400);
 
@@ -50,7 +47,6 @@ export function addUser(req: Request, res: Response) {
 export function deleteUser(req: Request, res: Response) {
   const id = req.params.id;
   const index = findUserIndexById(id);
-  res.setHeader('Access-Control-Allow-Origin', '*');
 
   if (index !== -1) {
     const user = users.splice(index, 1)[0];
@@ -62,7 +58,6 @@ export function deleteUser(req: Request, res: Response) {
 
 export function updateUser(req: Request, res: Response) {
   if (!req.body) return res.sendStatus(400);
-  res.setHeader('Access-Control-Allow-Origin', '*');
 
   const id = req.body.id;
   const userName = req.body.name;
