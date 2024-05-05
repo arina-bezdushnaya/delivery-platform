@@ -11,11 +11,12 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use('/', router);
 
-const corsOptions = {
+export const corsOptions = {
   origin: '*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200,
 };
+
 app.use(cors(corsOptions));
 
 app.listen(port, function() {
