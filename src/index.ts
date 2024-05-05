@@ -12,9 +12,10 @@ app.use(express.json());
 app.use('/', router);
 
 export const corsOptions = {
-  origin: '*',
-  methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-  optionsSuccessStatus: 200,
+  credentials: true,
+  preflightContinue: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  origin: true,
 };
 
 app.use(cors(corsOptions));
